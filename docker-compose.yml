@@ -1,0 +1,9 @@
+version: "3.1"
+
+services:
+  app:
+    container_name: "nutupsd"
+    image: itsmrshow/nutupsd_snmp:latest
+    restart: always
+    ports:
+      - 3493:3493
