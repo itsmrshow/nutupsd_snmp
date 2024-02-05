@@ -16,6 +16,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: |
-        docker build . --file Dockerfile --tag itsmrshow/nutupsd_snmp:$(date +%s)
+        docker build . --file Dockerfile --tag itsmrshow/nutupsd_snmp:latest
         echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-        docker push itsmrshow/nutupsd_snmp:$(date +%s)
+        export DOCKER_AUTH_CONFIG="{\"auths\":{\"https://index.docker.io/v1/\":{\"username\":\"${{ secrets.DOCKER_USERNAME }}\",\"password\":\"${{ secrets.DOCKER_PASSWORD }}\",\"email\":\"rjseccareccia@gmail.com\",\"auth\":\"$(echo -n "${{ secrets.DOCKER_USERNAME }}:${{ secrets.DOCKER_PASSWORD }}" | base64)\"}}}"
+        docker push itsmrshow/nutupsd_snmp:latest
