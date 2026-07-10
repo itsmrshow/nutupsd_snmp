@@ -1,0 +1,28 @@
+# Sensitive configuration files with credentials
+upsd.users
+.env
+.env.*
+
+# Backup files
+*.bak-*
+*.bak
+*.backup
+
+# Generated output
+graphify-out/
+
+# Config directory (may contain secrets)
+config/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+
+# Logs
+*.log
